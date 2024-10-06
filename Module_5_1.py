@@ -1,18 +1,20 @@
 class House:
     def __init__(self, name, number_of_floors):
-        self.name = name
-        self.number_of_floors = number_of_floors
+       self.name = name
+       self.number_of_floors = number_of_floors
 
     def go_to(self, new_floor):
-        if 1 <= new_floor <= self.number_of_floors:
-            for floor in range(1, new_floor + 1):
-                print(floor)
+        floor = 0
+        print(f'Здание {self.name} имеет {self.number_of_floors} этажей \nПоднимаемся на {new_floor}-й')
+        if new_floor < 1 or new_floor > self.number_of_floors:
+            print(f'{new_floor} - такого этажа не существует')
         else:
-            print("Такого этажа не существует")
+            for floor in range(new_floor):
+                print(floor + 1)
 
 
-house = House('ЖК Немчиновка', 24)
+hightower = House('ЖК Немчиновка', 19)
+warehouse = House('Гаражи', 5)
 
-
-house.go_to(9)
-house.go_to(26)
+hightower.go_to(9)
+warehouse.go_to(-1)
